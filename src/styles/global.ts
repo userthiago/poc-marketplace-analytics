@@ -9,6 +9,14 @@ export default createGlobalStyle`
     font-family: Roboto, Arial, Helvetica, sans-serif;
   }
 
+  html, body, #root {
+    max-height: 100vh;
+    max-width: 100vw;
+
+    width: 100%;
+    height: 100%;
+  }
+
   body {
     font-size: 16px;
 
