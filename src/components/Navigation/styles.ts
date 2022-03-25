@@ -33,8 +33,9 @@ export const ProfileContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #03045e;
+    flex-shrink: 0;
 
+    background-color: #03045e;
     height: 2.5rem;
     width: 2.5rem;
     border: 0;
