@@ -1,4 +1,7 @@
+/* eslint-disable react/jsx-curly-newline */
+/* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
+import { useCartContext } from '../../hooks/useCartContext';
 
 import { ProductContainer } from './styles';
 
@@ -13,6 +16,7 @@ interface ProductItemProps {
   };
 }
 const ProductItem: React.FC<ProductItemProps> = ({ data }) => {
+  const { handleProductList } = useCartContext();
   return (
     <ProductContainer>
       <div className="product__image">
@@ -27,7 +31,20 @@ const ProductItem: React.FC<ProductItemProps> = ({ data }) => {
             {data.value}
           </span>
         </div>
-        <button type="button">Adicionar ao carrinho</button>
+        <button
+          type="button"
+          onClick={() =>
+            handleProductList({
+              id: data.id,
+              name: data.shortName,
+              imageUrl: data.imageURL,
+              amount: 1,
+              price: data.value,
+            })
+          }
+        >
+          Adicionar ao carrinho
+        </button>
       </div>
     </ProductContainer>
   );

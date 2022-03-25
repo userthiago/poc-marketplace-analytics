@@ -62,3 +62,7 @@ export const Cart = styled.button`
     background-color: #023e8a;
   }
 `;
+
+export const CartContainer = styled.div`
+  position: relative;
+`;
