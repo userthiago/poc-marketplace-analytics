@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header`
   height: 80px;
   width: 100%;
   padding: 0 2rem;
-  border-bottom: solid 1px #a4d2ff;
+  border-bottom: solid 1px #0096c7;
 `;
 
 export const SearchInput = styled.div`
@@ -18,20 +18,26 @@ export const SearchInput = styled.div`
   align-items: center;
   flex: 1;
 
-  background-color: #d2e8ff;
+  background-color: #caf0f8;
   height: 2.5rem;
   padding: 0 1rem;
   border-radius: 1.25rem;
 
-  color: #413a9d;
+  color: #023e8a;
 
   input {
     margin-left: 0.5rem;
 
-    background-color: #d2e8ff;
+    background-color: #caf0f8;
     width: 100%;
     padding: 0.5rem;
     border: 0;
+
+    color: #023e8a;
+
+    &::placeholder {
+      color: #0096c7;
+    }
   }
 `;
 
@@ -41,7 +47,7 @@ export const Cart = styled.button`
   align-items: center;
   flex-shrink: 0;
 
-  background-color: #5d53e1;
+  background-color: #0077b6;
   height: 2.5rem;
   width: 2.5rem;
   margin-left: 1rem;
@@ -53,6 +59,6 @@ export const Cart = styled.button`
   font-size: 1rem;
 
   &:hover {
-    background-color: #413a9d;
+    background-color: #023e8a;
   }
 `;

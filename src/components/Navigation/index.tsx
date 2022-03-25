@@ -1,6 +1,9 @@
-import Link from 'next/link';
 import React from 'react';
-import { FiShoppingBag, FiUser } from 'react-icons/fi';
+import Link from 'next/link';
+import { FiLogOut, FiShoppingBag, FiUser } from 'react-icons/fi';
+
+import { ButtonStyled } from '../../elements/Button';
+
 import { NavigationContainer, ProfileContainer } from './styles';
 
 const Navigation: React.FC = () => {
@@ -14,12 +17,16 @@ const Navigation: React.FC = () => {
       </ProfileContainer>
       <nav>
         <Link href="/">
-          <button type="button">
+          <ButtonStyled type="button">
             <FiShoppingBag />
             <span>Produtos</span>
-          </button>
+          </ButtonStyled>
         </Link>
       </nav>
+      <ButtonStyled type="button">
+        <FiLogOut />
+        <span>Sair</span>
+      </ButtonStyled>
     </NavigationContainer>
   );
 };
