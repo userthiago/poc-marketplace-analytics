@@ -20,6 +20,7 @@ export const ProfileContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.primaryDark};
   height: 80px;
   padding: 0 1rem;
+  border-bottom: solid 1px ${({ theme }) => theme.colors.gray500};
 
   color: #ffffff;
 
@@ -43,5 +44,19 @@ export const ProfileContainer = styled.div`
 
     color: #ffffff;
     font-size: 1rem;
+  }
+`;
+
+export const LogoContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: ${({ theme }) => theme.colors.primaryDark};
+  height: 80px;
+  padding: 0 1rem;
+
+  h1 {
+    color: ${({ theme }) => theme.colors.primaryFontColor};
   }
 `;

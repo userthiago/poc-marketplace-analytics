@@ -4,17 +4,14 @@ import { FiLogOut, FiShoppingBag, FiUser } from 'react-icons/fi';
 
 import { ButtonStyled } from '../../elements/Button';
 
-import { NavigationContainer, ProfileContainer } from './styles';
+import { LogoContainer, NavigationContainer, ProfileContainer } from './styles';
 
 const Navigation: React.FC = () => {
   return (
     <NavigationContainer>
-      <ProfileContainer>
-        <div className="profile__picture">
-          <FiUser />
-        </div>
-        <span>Thiago Santos</span>
-      </ProfileContainer>
+      <LogoContainer>
+        <h1>POC Shop</h1>
+      </LogoContainer>
       <nav>
         <Link href="/">
           <ButtonStyled type="button">
@@ -23,6 +20,12 @@ const Navigation: React.FC = () => {
           </ButtonStyled>
         </Link>
       </nav>
+      <ProfileContainer>
+        <div className="profile__picture">
+          <FiUser />
+        </div>
+        <span>Thiago Santos</span>
+      </ProfileContainer>
       <ButtonStyled type="button">
         <FiLogOut />
         <span>Sair</span>
