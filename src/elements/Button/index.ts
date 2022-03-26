@@ -5,14 +5,14 @@ export const ButtonStyled = styled.button`
   display: flex;
   align-items: center;
 
-  background-color: #0077b6;
+  background-color: ${({ theme }) => theme.colors.primaryLight};
   width: 100%;
   border: 0;
 
   height: 50px;
   padding: 0 1rem;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
   font-size: 1rem;
   font-weight: 500;
 
@@ -23,7 +23,7 @@ export const ButtonStyled = styled.button`
     left: 0;
     bottom: 0;
 
-    background-color: #023e8a;
+    background-color: ${({ theme }) => theme.colors.primaryDark};
     width: 0;
     height: 50px;
     transition: width 0.4s ease;

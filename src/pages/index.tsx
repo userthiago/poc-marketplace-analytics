@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import ProductItem from '../components/Product';
-import AddProductModalButton from '../elements/AddProductModalButton';
+// import AddProductModalButton from '../elements/AddProductModalButton';
 import { api } from '../services/api';
 
 import { HomeContainer, ProductsListContainer } from './styles';
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
           ))}
         </ProductsListContainer>
 
-        <AddProductModalButton />
+        {/* <AddProductModalButton /> */}
       </HomeContainer>
     </>
   );

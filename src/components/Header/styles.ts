@@ -7,10 +7,11 @@ export const HeaderContainer = styled.header`
   grid-area: header;
   flex-shrink: 0;
 
+  background: ${({ theme }) => theme.colors.gray200};
   height: 80px;
   width: 100%;
   padding: 0 2rem;
-  border-bottom: solid 1px #0096c7;
+  border-bottom: solid 1px ${({ theme }) => theme.colors.gray400};
 `;
 
 export const SearchInput = styled.div`
@@ -18,25 +19,25 @@ export const SearchInput = styled.div`
   align-items: center;
   flex: 1;
 
-  background-color: #caf0f8;
+  background-color: ${({ theme }) => theme.colors.white};
   height: 2.5rem;
   padding: 0 1rem;
   border-radius: 1.25rem;
 
-  color: #023e8a;
+  color: ${({ theme }) => theme.colors.primary};
 
   input {
     margin-left: 0.5rem;
 
-    background-color: #caf0f8;
+    background-color: ${({ theme }) => theme.colors.white};
     width: 100%;
     padding: 0.5rem;
     border: 0;
 
-    color: #023e8a;
+    color: ${({ theme }) => theme.colors.primary};
 
     &::placeholder {
-      color: #0096c7;
+      color: ${({ theme }) => theme.colors.primaryLight};
     }
   }
 `;
@@ -47,7 +48,7 @@ export const Cart = styled.button`
   align-items: center;
   flex-shrink: 0;
 
-  background-color: #0077b6;
+  background-color: ${({ theme }) => theme.colors.primary};
   height: 2.5rem;
   width: 2.5rem;
   margin-left: 1rem;
@@ -55,14 +56,15 @@ export const Cart = styled.button`
   border-radius: 50%;
   transition: background-color 0.4s ease-out;
 
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.primaryFontColor};
   font-size: 1rem;
 
   &:hover {
-    background-color: #023e8a;
+    background-color: ${({ theme }) => theme.colors.primaryDark};
   }
 `;
 
 export const CartContainer = styled.div`
+  z-index: 500;
   position: relative;
 `;

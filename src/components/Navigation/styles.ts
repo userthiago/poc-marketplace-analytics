@@ -5,7 +5,7 @@ export const NavigationContainer = styled.div`
   flex-direction: column;
   grid-area: nav;
 
-  background-color: #0096c7;
+  background-color: ${({ theme }) => theme.colors.primary};
 
   nav {
     padding: 1rem 0;
@@ -17,7 +17,7 @@ export const ProfileContainer = styled.div`
   display: flex;
   align-items: center;
 
-  background-color: #023e8a;
+  background-color: ${({ theme }) => theme.colors.primaryDark};
   height: 80px;
   padding: 0 1rem;
 
@@ -35,7 +35,7 @@ export const ProfileContainer = styled.div`
     align-items: center;
     flex-shrink: 0;
 
-    background-color: #03045e;
+    background-color: ${({ theme }) => theme.colors.primaryLight};
     height: 2.5rem;
     width: 2.5rem;
     border: 0;

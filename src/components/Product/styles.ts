@@ -5,7 +5,7 @@ export const ProductContainer = styled.div`
   flex-direction: column;
   width: 350px;
 
-  background-color: #03045e;
+  background-color: ${({ theme }) => theme.colors.primaryLight};
   border-radius: 0.8rem 0.8rem 0.4rem 0.4rem;
 
   .product__image {
@@ -32,7 +32,7 @@ export const ProductContainer = styled.div`
     > span {
       padding: 1rem 0.8rem;
 
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.primaryFontColor};
       font-size: 1.2rem;
       font-weight: 500;
     }
@@ -40,27 +40,27 @@ export const ProductContainer = styled.div`
     .content__value {
       padding: 0 0.8rem 1rem;
 
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.primaryFontColor};
 
       > span {
-        color: #caf0f8;
+        color: ${({ theme }) => theme.colors.gray100};
         font-weight: 600;
       }
     }
 
     > button {
-      background-color: #0077b6;
+      background-color: ${({ theme }) => theme.colors.primary};
       height: 2.5rem;
       border: 0;
       border-radius: 0 0 0.4rem 0.4rem;
 
-      color: #ffffff;
+      color: ${({ theme }) => theme.colors.primaryFontColor};
       font-weight: 500;
 
       transition: background-color 0.4s ease;
 
       &:hover {
-        background-color: #023e8a;
+        background-color: ${({ theme }) => theme.colors.primaryDark};
       }
     }
   }

@@ -41,7 +41,7 @@ export const ProductCartItemContainer = styled.div`
         justify-content: center;
         flex-shrink: 0;
 
-        background-color: #90e0ef;
+        background-color: ${({ theme }) => theme.colors.primaryLight};
         height: 1.6rem;
         width: 1.6rem;
         border: 0;
@@ -49,12 +49,10 @@ export const ProductCartItemContainer = styled.div`
         margin-left: 0.5rem;
         transition: all 0.4s ease;
 
-        color: #023e8a;
+        color: ${({ theme }) => theme.colors.primaryFontColor};
 
         &:hover {
-          background-color: #023e8a;
-
-          color: #ffffff;
+          background-color: ${({ theme }) => theme.colors.primaryDark};
         }
       }
 
@@ -75,7 +73,7 @@ export const ProductCartItemContainer = styled.div`
         align-items: center;
 
         height: 1.5rem;
-        border: solid 1px #90e0ef;
+        border: solid 1px ${({ theme }) => theme.colors.primaryLight};
         border-radius: 0.2rem;
 
         span {
@@ -90,31 +88,29 @@ export const ProductCartItemContainer = styled.div`
           justify-content: center;
           flex-shrink: 0;
 
-          background-color: #90e0ef;
+          background-color: ${({ theme }) => theme.colors.primaryLight};
           height: 100%;
           width: 1.6rem;
           border: 0;
           border-radius: 0.2rem;
           transition: all 0.4s ease;
 
-          color: #023e8a;
+          color: ${({ theme }) => theme.colors.primaryFontColor};
 
           &:hover {
-            background-color: #023e8a;
-
-            color: #ffffff;
+            background-color: ${({ theme }) => theme.colors.primaryDark};
           }
 
           &:disabled {
-            background-color: #dee2e6;
+            background-color: ${({ theme }) => theme.colors.disabled};
             cursor: not-allowed;
 
-            color: #6c757d;
+            color: ${({ theme }) => theme.colors.disabledFontColor};
 
             &:hover {
-              background-color: #dee2e6;
+              background-color: ${({ theme }) => theme.colors.primaryDark};
 
-              color: #6c757d;
+              color: ${({ theme }) => theme.colors.primaryDark};
             }
           }
         }
