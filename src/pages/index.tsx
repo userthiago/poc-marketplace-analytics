@@ -4,7 +4,7 @@ import ProductItem from '../components/Product';
 // import AddProductModalButton from '../elements/AddProductModalButton';
 import { api } from '../services/api';
 
-import { HomeContainer, ProductsListContainer } from './styles';
+import { HomeContainer, ProductsListContainer } from '../styles/Home/styles';
 
 interface ProductData {
   id: string;
