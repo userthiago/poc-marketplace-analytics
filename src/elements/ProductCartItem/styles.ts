@@ -32,8 +32,35 @@ export const ProductCartItemContainer = styled.div`
     margin-left: 0.8rem;
     padding: 0.8rem 0;
 
-    > p {
-      font-weight: 500;
+    .content__header {
+      display: flex;
+
+      > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        background-color: #90e0ef;
+        height: 1.6rem;
+        width: 1.6rem;
+        border: 0;
+        border-radius: 50%;
+        margin-left: 0.5rem;
+        transition: all 0.4s ease;
+
+        color: #023e8a;
+
+        &:hover {
+          background-color: #023e8a;
+
+          color: #ffffff;
+        }
+      }
+
+      > p {
+        font-weight: 500;
+      }
     }
 
     .content__values {
@@ -41,7 +68,71 @@ export const ProductCartItemContainer = styled.div`
       justify-content: space-between;
       align-items: center;
 
-      margin-top: 0.5rem;
+      margin-top: 1rem;
+
+      .values__amount {
+        display: flex;
+        align-items: center;
+
+        height: 1.5rem;
+        border: solid 1px #90e0ef;
+        border-radius: 0.2rem;
+
+        span {
+          padding: 0 0.4rem;
+
+          font-size: 0.9rem;
+        }
+
+        button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          background-color: #90e0ef;
+          height: 100%;
+          width: 1.6rem;
+          border: 0;
+          border-radius: 0.2rem;
+          transition: all 0.4s ease;
+
+          color: #023e8a;
+
+          &:hover {
+            background-color: #023e8a;
+
+            color: #ffffff;
+          }
+
+          &:disabled {
+            background-color: #dee2e6;
+            cursor: not-allowed;
+
+            color: #6c757d;
+
+            &:hover {
+              background-color: #dee2e6;
+
+              color: #6c757d;
+            }
+          }
+        }
+
+        button:first-child {
+          margin-right: 0.5rem;
+        }
+
+        button:last-child {
+          margin-left: 0.5rem;
+        }
+      }
+
+      .values__price {
+        color: #03045e;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
     }
   }
 `;

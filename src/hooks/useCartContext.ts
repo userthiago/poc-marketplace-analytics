@@ -2,7 +2,21 @@ import { useContext } from 'react';
 import { CartContext, CartData } from '../context/CartContext';
 
 export function useCartContext(): CartData {
-  const { handleProductList, productList } = useContext(CartContext);
+  const {
+    handleProductList,
+    handleAddProductAmount,
+    handleRemoveProductAmount,
+    handleRemoveProduct,
+    productList,
+    CART_TOTAL_PRICE,
+  } = useContext(CartContext);
 
-  return { handleProductList, productList };
+  return {
+    handleProductList,
+    handleAddProductAmount,
+    handleRemoveProductAmount,
+    handleRemoveProduct,
+    productList,
+    CART_TOTAL_PRICE,
+  };
 }

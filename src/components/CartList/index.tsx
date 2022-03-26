@@ -3,7 +3,6 @@ import { FiPlus } from 'react-icons/fi';
 import { CSSTransition } from 'react-transition-group';
 import ProductCartItem from '../../elements/ProductCartItem';
 import { useCartContext } from '../../hooks/useCartContext';
-import { useOutsideAlerter } from '../../hooks/useOutsideAlerter';
 
 import { CartListContainer } from './styles';
 
@@ -13,10 +12,8 @@ type CartListProps = {
 };
 
 const CartList: React.FC<CartListProps> = ({ cartState, onCloseCart }) => {
-  const { productList } = useCartContext();
+  const { productList, CART_TOTAL_PRICE } = useCartContext();
   const nodeRef = useRef(null);
-
-  useOutsideAlerter({ ref: nodeRef, action: onCloseCart });
 
   return (
     <CSSTransition
@@ -43,7 +40,12 @@ const CartList: React.FC<CartListProps> = ({ cartState, onCloseCart }) => {
             <div className="fullCart__actions">
               <div className="actions__summary">
                 <p>Total do pedido:</p>
-                <span>R$ 00,00</span>
+                <span>
+                  {new Intl.NumberFormat('pt-BR', {
+                    style: 'currency',
+                    currency: 'BRL',
+                  }).format(CART_TOTAL_PRICE)}
+                </span>
               </div>
               <button type="button" id="sc_comprar-carrinho">
                 Seguir para a compra

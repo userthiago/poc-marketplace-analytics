@@ -30,6 +30,7 @@
         "arrow-body-style": "off",
         "object-curly-newline": "off",
         "import/prefer-default-export": "off",
+        "operator-linebreak": "off",
         "react/function-component-definition": [
             2,
             {

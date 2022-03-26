@@ -1,4 +1,5 @@
-import React, { createContext, useCallback, useState } from 'react';
+/* eslint-disable implicit-arrow-linebreak */
+import React, { createContext, useCallback, useMemo, useState } from 'react';
 
 type ProductData = {
   id: string;
@@ -9,16 +10,88 @@ type ProductData = {
 };
 
 export interface CartData {
-  // CART_TOTAL_VALUE: number;
-  // PRODUCTS_AMOUNT: number;
   productList: ProductData[];
+  CART_TOTAL_PRICE: number;
   handleProductList: (product: ProductData) => void;
+  handleAddProductAmount: (id: string) => void;
+  handleRemoveProductAmount: (id: string) => void;
+  handleRemoveProduct: (id: string) => void;
 }
 
 export const CartContext = createContext({} as CartData);
 
 const CartContextProvider: React.FC = ({ children, ...props }) => {
   const [productList, setProductList] = useState<ProductData[]>([]);
+
+  const CART_TOTAL_PRICE = useMemo(
+    () =>
+      productList
+        .map((product) => product.price * product.amount)
+        .reduce((totalPrice, productPrice) => totalPrice + productPrice, 0),
+    [productList],
+  );
+
+  const handleAddProductAmount = useCallback(
+    (id: string) => {
+      const productListCopy = [...productList];
+
+      const productIndex = productListCopy.findIndex(
+        (product) => product.id === id,
+      );
+
+      if (productIndex >= 0) {
+        productListCopy[productIndex] = {
+          ...productListCopy[productIndex],
+          amount: (productListCopy[productIndex].amount += 1),
+        };
+      }
+
+      setProductList(productListCopy);
+    },
+    [productList],
+  );
+
+  const handleRemoveProductAmount = useCallback(
+    (id: string) => {
+      const productListCopy = [...productList];
+
+      const productIndex = productListCopy.findIndex(
+        (product) => product.id === id,
+      );
+
+      if (
+        productListCopy[productIndex] &&
+        productListCopy[productIndex].amount === 1
+      ) {
+        productListCopy.splice(productIndex, 1);
+      } else if (productListCopy[productIndex]) {
+        productListCopy[productIndex] = {
+          ...productListCopy[productIndex],
+          amount: (productListCopy[productIndex].amount -= 1),
+        };
+      }
+
+      setProductList(productListCopy);
+    },
+    [productList],
+  );
+
+  const handleRemoveProduct = useCallback(
+    (id: string) => {
+      const productListCopy = [...productList];
+
+      const productIndex = productListCopy.findIndex(
+        (product) => product.id === id,
+      );
+
+      if (productListCopy[productIndex]) {
+        productListCopy.splice(productIndex, 1);
+      }
+
+      setProductList(productListCopy);
+    },
+    [productList],
+  );
 
   const handleProductList = useCallback(
     (product: ProductData) => {
@@ -44,9 +117,20 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
     [productList],
   );
 
+  const cartContextValue = useMemo(
+    () => ({
+      productList,
+      handleProductList,
+      handleAddProductAmount,
+      handleRemoveProductAmount,
+      handleRemoveProduct,
+      CART_TOTAL_PRICE,
+    }),
+    [productList, handleProductList, CART_TOTAL_PRICE],
+  );
+
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
-    <CartContext.Provider value={{ productList, handleProductList }} {...props}>
+    <CartContext.Provider value={cartContextValue} {...props}>
       {children}
     </CartContext.Provider>
   );
