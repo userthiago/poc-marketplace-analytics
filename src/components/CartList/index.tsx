@@ -30,14 +30,14 @@ const CartList: React.FC<CartListProps> = ({ cartState, onCloseCart }) => {
             <FiPlus />
           </button>
         </div>
-        <div>
-          <div className="cartContent__fullCart">
-            <div className="fullCart__products">
+        {productList.length > 0 ? (
+          <div className="cartContent__cartWithProducts">
+            <div className="cartWithProducts__products">
               {productList.map((product) => (
                 <ProductCartItem key={product.id} data={product} />
               ))}
             </div>
-            <div className="fullCart__actions">
+            <div className="cartWithProducts__actions">
               <div className="actions__summary">
                 <p>Total do pedido:</p>
                 <span>
@@ -52,7 +52,11 @@ const CartList: React.FC<CartListProps> = ({ cartState, onCloseCart }) => {
               </button>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="cartContent__cartWithoutProducts">
+            <p>Não há produtos em seu carrinho. :(</p>
+          </div>
+        )}
       </CartListContainer>
     </CSSTransition>
   );

@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-curly-newline */
 /* eslint-disable implicit-arrow-linebreak */
 import React from 'react';
+import { toast } from 'react-toastify';
 import { useCartContext } from '../../hooks/useCartContext';
 
 import { ProductContainer } from './styles';
@@ -17,6 +18,21 @@ interface ProductItemProps {
 }
 const ProductItem: React.FC<ProductItemProps> = ({ data }) => {
   const { handleProductList } = useCartContext();
+
+  const handleAddProductToCart = () => {
+    handleProductList({
+      id: data.id,
+      name: data.shortName,
+      imageUrl: data.imageURL,
+      amount: 1,
+      price: data.value,
+    });
+    toast.success(`O produto ${data.name} foi adicionado ao seu carrinho.`, {
+      position: 'bottom-right',
+      theme: 'dark',
+    });
+  };
+
   return (
     <ProductContainer>
       <div className="product__image">
@@ -31,18 +47,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ data }) => {
             {data.value}
           </span>
         </div>
-        <button
-          type="button"
-          onClick={() =>
-            handleProductList({
-              id: data.id,
-              name: data.shortName,
-              imageUrl: data.imageURL,
-              amount: 1,
-              price: data.value,
-            })
-          }
-        >
+        <button type="button" onClick={handleAddProductToCart}>
           Adicionar ao carrinho
         </button>
       </div>

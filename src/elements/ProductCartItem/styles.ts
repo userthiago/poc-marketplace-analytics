@@ -108,9 +108,9 @@ export const ProductCartItemContainer = styled.div`
             color: ${({ theme }) => theme.colors.disabledFontColor};
 
             &:hover {
-              background-color: ${({ theme }) => theme.colors.primaryDark};
+              background-color: ${({ theme }) => theme.colors.disabled};
 
-              color: ${({ theme }) => theme.colors.primaryDark};
+              color: ${({ theme }) => theme.colors.disabledFontColor};
             }
           }
         }

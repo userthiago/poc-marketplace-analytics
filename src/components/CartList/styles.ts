@@ -53,8 +53,16 @@ export const CartListContainer = styled.div`
     }
   }
 
-  .cartContent__fullCart {
-    .fullCart__products {
+  .cartContent__cartWithoutProducts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+  }
+
+  .cartContent__cartWithProducts {
+    .cartWithProducts__products {
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -80,7 +88,7 @@ export const CartListContainer = styled.div`
       }
     }
 
-    .fullCart__actions {
+    .cartWithProducts__actions {
       padding: 0.8rem;
 
       background: ${({ theme }) => theme.colors.primary};

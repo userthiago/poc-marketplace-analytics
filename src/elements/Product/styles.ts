@@ -16,12 +16,19 @@ export const ProductContainer = styled.div`
     border-radius: 0.8rem 0.8rem 0 0;
     overflow: hidden;
 
-    img {
+    > img {
       height: 100%;
       width: 100%;
       object-fit: cover;
       border-radius: 0.8rem 0.8rem 0 0;
       transform: scale(1.4);
+      transition: transform 0.4s ease;
+    }
+
+    &:hover {
+      > img {
+        transform: scale(1.55);
+      }
     }
   }
 
