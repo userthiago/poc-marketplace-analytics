@@ -21,6 +21,7 @@ const colors: ColorsModel = {
   gray300: '#DEE2E6',
   gray400: '#CED4DA',
   gray500: '#ADB5BD',
+  gray600: '#6C757D',
 };
 
 const themeLight: ThemeModel = {

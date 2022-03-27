@@ -19,6 +19,7 @@ export interface ColorsModel {
   gray300: string;
   gray400: string;
   gray500: string;
+  gray600: string;
 }
 
 export interface ThemeModel {

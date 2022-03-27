@@ -73,7 +73,7 @@ export const ProductCartItemContainer = styled.div`
         align-items: center;
 
         height: 1.5rem;
-        border: solid 1px ${({ theme }) => theme.colors.primaryLight};
+        border: solid 1px ${({ theme }) => theme.colors.gray400};
         border-radius: 0.2rem;
 
         span {
@@ -92,7 +92,7 @@ export const ProductCartItemContainer = styled.div`
           height: 100%;
           width: 1.6rem;
           border: 0;
-          border-radius: 0.2rem;
+          border-radius: 0.15rem;
           transition: all 0.4s ease;
 
           color: ${({ theme }) => theme.colors.primaryFontColor};

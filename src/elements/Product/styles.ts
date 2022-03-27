@@ -24,12 +24,6 @@ export const ProductContainer = styled.div`
       transform: scale(1.4);
       transition: transform 0.4s ease;
     }
-
-    &:hover {
-      > img {
-        transform: scale(1.55);
-      }
-    }
   }
 
   .product__content {
