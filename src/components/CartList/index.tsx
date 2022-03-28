@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import React, { useRef } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import { CSSTransition } from 'react-transition-group';
+import ButtonShop from '../../elements/ButtonShop';
 import ProductCartItem from '../../elements/ProductCartItem';
 import { useCartContext } from '../../hooks/useCartContext';
 
@@ -47,9 +49,9 @@ const CartList: React.FC<CartListProps> = ({ cartState, onCloseCart }) => {
                   }).format(CART_TOTAL_PRICE)}
                 </span>
               </div>
-              <button type="button" id="sc_comprar-carrinho">
-                Seguir para a compra
-              </button>
+              <Link href="/cart">
+                <ButtonShop>Seguir para a compra</ButtonShop>
+              </Link>
             </div>
           </div>
         ) : (

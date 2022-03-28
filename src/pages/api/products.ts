@@ -1,3 +1,6 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable @typescript-eslint/indent */
 import { NextApiRequest, NextApiResponse } from 'next';
 
 import { query as q } from 'faunadb';

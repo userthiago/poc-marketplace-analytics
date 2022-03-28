@@ -94,23 +94,6 @@ export const CartListContainer = styled.div`
       background: ${({ theme }) => theme.colors.primary};
       border-radius: 0 0 10px 10px;
 
-      button {
-        background-color: ${({ theme }) => theme.colors.primaryLight};
-        height: 3rem;
-        width: 100%;
-        border: 0;
-        border-radius: 0.4rem;
-
-        color: ${({ theme }) => theme.colors.primaryFontColor};
-        font-weight: 500;
-
-        transition: background-color 0.4s ease;
-
-        &:hover {
-          background-color: ${({ theme }) => theme.colors.gray600};
-        }
-      }
-
       .actions__summary {
         display: flex;
         justify-content: space-between;

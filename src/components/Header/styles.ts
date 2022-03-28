@@ -29,6 +29,10 @@ export const HeaderContainer = styled.header`
     }
   }
 
+  .headerContainer__logo-link {
+    cursor: pointer;
+  }
+
   @media (max-width: ${({ theme }) => theme.viewports.small}) {
     padding: 0 1rem;
 

@@ -24,6 +24,7 @@
         "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "react/prop-types": "off",
+        "react/require-default-props": "off",
         "import/no-unresolved": "error",
         "react/jsx-props-no-spreading": "off",
         "linebreak-style": 0,

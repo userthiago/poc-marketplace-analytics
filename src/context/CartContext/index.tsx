@@ -1,5 +1,12 @@
 /* eslint-disable implicit-arrow-linebreak */
-import React, { createContext, useCallback, useMemo, useState } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import { toast } from 'react-toastify';
 
 type ProductData = {
   id: string;
@@ -12,16 +19,20 @@ type ProductData = {
 export interface CartData {
   productList: ProductData[];
   CART_TOTAL_PRICE: number;
+  isLoading: boolean;
   handleProductList: (product: ProductData) => void;
   handleAddProductAmount: (id: string) => void;
   handleRemoveProductAmount: (id: string) => void;
   handleRemoveProduct: (id: string) => void;
+  handleFinishPurchase: () => void;
 }
 
 export const CartContext = createContext({} as CartData);
 
 const CartContextProvider: React.FC = ({ children, ...props }) => {
   const [productList, setProductList] = useState<ProductData[]>([]);
+  const [isLoading, setLoading] = useState(false);
+  const toastId = useRef(null);
 
   const CART_TOTAL_PRICE = useMemo(
     () =>
@@ -76,6 +87,36 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
     [productList],
   );
 
+  const handleFinishPurchase = () => {
+    setLoading(true);
+    toastId.current = toast(
+      'Aguarde um momento, estamos finalizando a sua compra...',
+      {
+        theme: 'dark',
+        type: toast.TYPE.INFO,
+        closeButton: false,
+        closeOnClick: false,
+        autoClose: false,
+        draggable: false,
+        position: 'bottom-right',
+      },
+    );
+
+    setTimeout(() => {
+      toast.update(toastId.current, {
+        render: 'Sua compra foi realizada com sucesso! :)',
+        theme: 'colored',
+        type: toast.TYPE.SUCCESS,
+        autoClose: 5000,
+        closeButton: true,
+        closeOnClick: true,
+        draggable: true,
+        position: 'bottom-right',
+      });
+      setLoading(false);
+    }, 9000);
+  };
+
   const handleRemoveProduct = useCallback(
     (id: string) => {
       const productListCopy = [...productList];
@@ -120,13 +161,21 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
   const cartContextValue = useMemo(
     () => ({
       productList,
+      isLoading,
       handleProductList,
       handleAddProductAmount,
       handleRemoveProductAmount,
       handleRemoveProduct,
+      handleFinishPurchase,
       CART_TOTAL_PRICE,
     }),
-    [productList, handleProductList, CART_TOTAL_PRICE],
+    [
+      productList,
+      handleProductList,
+      CART_TOTAL_PRICE,
+      isLoading,
+      handleFinishPurchase,
+    ],
   );
 
   return (

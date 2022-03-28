@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import { FiShoppingCart, FiSearch } from 'react-icons/fi';
 import FullBackground from '../../elements/FullBackground';
@@ -14,12 +15,16 @@ const Header: React.FC = () => {
 
   return (
     <HeaderContainer>
-      <div className="headerContainer__logo headerContainer__logo--desktop">
-        POC SHOP
-      </div>
-      <div className="headerContainer__logo headerContainer__logo--mobile">
-        PSHOP
-      </div>
+      <Link href="/">
+        <div className="headerContainer__logo-link">
+          <div className="headerContainer__logo headerContainer__logo--desktop">
+            POC SHOP
+          </div>
+          <div className="headerContainer__logo headerContainer__logo--mobile">
+            PSHOP
+          </div>
+        </div>
+      </Link>
       <SearchInput>
         <FiSearch />
         <input placeholder="Buscar produtos e muito mais..." />
