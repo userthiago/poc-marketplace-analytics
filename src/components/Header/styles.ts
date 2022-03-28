@@ -12,6 +12,33 @@ export const HeaderContainer = styled.header`
   width: 100%;
   padding: 0 2rem;
   border-bottom: solid 1px ${({ theme }) => theme.colors.gray400};
+
+  .headerContainer__logo {
+    margin-right: 1rem;
+
+    font-size: 1.8rem;
+    font-weight: 900;
+
+    &--mobile {
+      display: none;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.viewports.small}) {
+    padding: 0 1rem;
+
+    .headerContainer__logo {
+      font-size: 1.2rem;
+
+      &--desktop {
+        display: none;
+      }
+
+      &--mobile {
+        display: block;
+      }
+    }
+  }
 `;
 
 export const SearchInput = styled.div`

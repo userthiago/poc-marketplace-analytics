@@ -22,7 +22,16 @@ export interface ColorsModel {
   gray600: string;
 }
 
+export interface ViewportModel {
+  xsmall: string;
+  small: string;
+  medium: string;
+  large: string;
+  xlarge: string;
+}
+
 export interface ThemeModel {
   name: string;
   colors: ColorsModel;
+  viewports: ViewportModel;
 }

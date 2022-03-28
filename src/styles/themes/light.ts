@@ -1,4 +1,5 @@
 import { ColorsModel, ThemeModel } from './models';
+import viewports from './viewport';
 
 const colors: ColorsModel = {
   primary: '#343A40',
@@ -22,11 +23,12 @@ const colors: ColorsModel = {
   gray400: '#CED4DA',
   gray500: '#ADB5BD',
   gray600: '#6C757D',
-};
+} as const;
 
 const themeLight: ThemeModel = {
   name: 'light',
   colors,
+  viewports,
 };
 
 export default themeLight;

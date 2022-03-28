@@ -14,6 +14,12 @@ const Header: React.FC = () => {
 
   return (
     <HeaderContainer>
+      <div className="headerContainer__logo headerContainer__logo--desktop">
+        POC SHOP
+      </div>
+      <div className="headerContainer__logo headerContainer__logo--mobile">
+        PSHOP
+      </div>
       <SearchInput>
         <FiSearch />
         <input placeholder="Buscar produtos e muito mais..." />

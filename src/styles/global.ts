@@ -30,11 +30,10 @@ export default createGlobalStyle`
 
     #__next {
       display: grid;
-      grid-template-columns: 14vw 86vw;
       grid-template-rows: 80px calc(100% - 80px);
       grid-template-areas:
-        'nav header'
-        'nav content';
+        'header'
+        'content';
 
       height: 100vh;
     }

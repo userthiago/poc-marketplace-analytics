@@ -27,10 +27,14 @@ const ProductItem: React.FC<ProductItemProps> = ({ data }) => {
       amount: 1,
       price: data.value,
     });
-    toast.success(`O produto ${data.name} foi adicionado ao seu carrinho.`, {
-      position: 'bottom-right',
-      theme: 'dark',
-    });
+    toast.success(
+      `O produto ${data.shortName} foi adicionado ao seu carrinho.`,
+      {
+        position: 'bottom-right',
+        theme: 'dark',
+        toastId: `add-product-message-${data.id}`,
+      },
+    );
   };
 
   return (
