@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 import { useCartContext } from '../../hooks/useCartContext';
-import { CartContainer } from './styles';
+import { CartContainer } from '../../styles/Cart/styles';
 
 const Cart: React.FC = () => {
   const {
