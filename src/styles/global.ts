@@ -30,7 +30,7 @@ export default createGlobalStyle`
 
     #__next {
       display: grid;
-      grid-template-rows: 80px calc(100vh - 80px);
+      grid-template-rows: 80px calc(var(--app-height, 1vh) - 80px);
       grid-template-areas:
         'header'
         'content';
