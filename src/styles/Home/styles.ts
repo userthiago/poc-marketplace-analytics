@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const HomeContainer = styled.main`
-  padding: 2rem;
+  padding: 112px 2rem 2rem;
   overflow-y: auto;
 
   @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
-    padding: 1rem;
+    padding: 112px 1rem 1rem;
   }
 `;
 

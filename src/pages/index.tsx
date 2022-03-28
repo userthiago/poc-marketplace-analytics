@@ -28,17 +28,6 @@ const Home: React.FC = () => {
     fetchProductList();
   }, []);
 
-  useEffect(() => {
-    const handleAppHeight = () => {
-      const doc = document.documentElement;
-      doc.style.setProperty('--app-height', `${window.innerHeight}px`);
-    };
-
-    window.addEventListener('resize', handleAppHeight);
-
-    return () => window.removeEventListener('resize', handleAppHeight);
-  }, []);
-
   return (
     <>
       <Head>

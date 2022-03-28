@@ -27,16 +27,6 @@ export default createGlobalStyle`
         text-decoration: none;
       }
     }
-
-    #__next {
-      display: grid;
-      grid-template-rows: 80px calc(var(--app-height, 1vh) - 80px);
-      grid-template-areas:
-        'header'
-        'content';
-
-      height: 100vh;
-    }
   }
 
   button, a, [role="button"] {
