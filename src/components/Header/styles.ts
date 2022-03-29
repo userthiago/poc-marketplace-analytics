@@ -103,4 +103,8 @@ export const Cart = styled.button`
 export const CartContainer = styled.div`
   z-index: 500;
   position: relative;
+
+  @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+    position: initial;
+  }
 `;

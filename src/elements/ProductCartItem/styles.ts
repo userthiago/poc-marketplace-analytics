@@ -9,8 +9,8 @@ export const ProductCartItemContainer = styled.div`
   .productCartItem__image {
     flex-shrink: 0;
 
-    height: 104px;
-    width: 72px;
+    height: 6.5rem;
+    width: 4.5rem;
     overflow: hidden;
     border-radius: 0.2rem;
 
@@ -53,6 +53,11 @@ export const ProductCartItemContainer = styled.div`
 
         &:hover {
           background-color: ${({ theme }) => theme.colors.primaryDark};
+        }
+
+        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+          height: 2rem;
+          width: 2rem;
         }
       }
 
@@ -115,6 +120,15 @@ export const ProductCartItemContainer = styled.div`
           }
         }
 
+        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+          height: 1.8rem;
+
+          button {
+            width: 1.8rem;
+            height: 1.8rem;
+          }
+        }
+
         button:first-child {
           margin-right: 0.5rem;
         }
@@ -128,6 +142,10 @@ export const ProductCartItemContainer = styled.div`
         color: #03045e;
         font-size: 0.9rem;
         font-weight: 500;
+
+        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+          font-size: 1rem;
+        }
       }
     }
   }

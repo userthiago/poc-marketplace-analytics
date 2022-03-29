@@ -22,6 +22,23 @@ export const CartListContainer = styled.div`
     transform: rotate(45deg) translateX(-50%);
   }
 
+  @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+    top: 4.5rem;
+    right: 0;
+    left: 0;
+
+    width: calc(100% - 1rem);
+    margin: 0 0.5rem;
+
+    &:before {
+      top: 0px;
+      right: 0.9rem;
+
+      height: 1rem;
+      width: 1rem;
+    }
+  }
+
   .cartContent__header {
     display: flex;
     justify-content: space-between;
@@ -35,7 +52,7 @@ export const CartListContainer = styled.div`
 
       color: ${({ theme }) => theme.colors.primaryLight};
       font-size: 1rem;
-      font-weight: 500;
+      font-weight: 700;
     }
 
     button {
@@ -49,6 +66,12 @@ export const CartListContainer = styled.div`
 
       &:hover {
         color: ${({ theme }) => theme.colors.primaryDark};
+      }
+    }
+
+    @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+      h2 {
+        font-size: 1.2rem;
       }
     }
   }
@@ -109,6 +132,10 @@ export const CartListContainer = styled.div`
         > span {
           color: ${({ theme }) => theme.colors.primaryFontColor};
           font-weight: 700;
+        }
+
+        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+          font-size: 1rem;
         }
       }
     }

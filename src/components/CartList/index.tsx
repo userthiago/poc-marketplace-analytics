@@ -50,7 +50,9 @@ const CartList: React.FC<CartListProps> = ({ cartState, onCloseCart }) => {
                 </span>
               </div>
               <Link href="/cart">
-                <ButtonShop>Seguir para a compra</ButtonShop>
+                <ButtonShop onClick={() => onCloseCart()}>
+                  Seguir para a compra
+                </ButtonShop>
               </Link>
             </div>
           </div>
