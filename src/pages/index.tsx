@@ -1,32 +1,16 @@
 import Head from 'next/head';
-import React, { useEffect, useState } from 'react';
-import ProductItem from '../elements/Product';
-import { api } from '../services/api';
+import React from 'react';
+
+import ProductItem from '../elements/ProductItem';
+import { loadProducts, ProductData } from '../services/loadProducts';
 
 import { HomeContainer, ProductsListContainer } from '../styles/Home/styles';
 
-interface ProductData {
-  id: string;
-  name: string;
-  shortName: string;
-  description: string;
-  imageURL: string;
-  value: number;
+interface HomeProps {
+  products: ProductData[];
 }
 
-const Home: React.FC = () => {
-  const [productsList, setProductsList] = useState<ProductData[]>([]);
-
-  useEffect(() => {
-    const fetchProductList = () => {
-      return api
-        .get<ProductData[]>('/products')
-        .then((res) => setProductsList(res.data));
-    };
-
-    fetchProductList();
-  }, []);
-
+const Home: React.FC<HomeProps> = ({ products }) => {
   return (
     <>
       <Head>
@@ -40,15 +24,19 @@ const Home: React.FC = () => {
       </Head>
       <HomeContainer>
         <ProductsListContainer>
-          {productsList.map((product) => (
+          {products.map((product) => (
             <ProductItem key={product.id} data={product} />
           ))}
         </ProductsListContainer>
-
-        {/* <AddProductModalButton /> */}
       </HomeContainer>
     </>
   );
 };
+
+export async function getServerSideProps() {
+  const products = await loadProducts();
+
+  return { props: { products } };
+}
 
 export default Home;

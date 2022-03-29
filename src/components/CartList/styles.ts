@@ -81,7 +81,7 @@ export const CartListContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    padding: 1rem;
+    padding: 2rem 1rem;
   }
 
   .cartContent__cartWithProducts {

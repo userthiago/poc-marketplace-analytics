@@ -58,7 +58,7 @@ const CartList: React.FC<CartListProps> = ({ cartState, onCloseCart }) => {
           </div>
         ) : (
           <div className="cartContent__cartWithoutProducts">
-            <p>Não há produtos em seu carrinho. :(</p>
+            <p>Não há produtos em seu carrinho :(</p>
           </div>
         )}
       </CartListContainer>

@@ -139,7 +139,7 @@ export const ProductCartItemContainer = styled.div`
       }
 
       .values__price {
-        color: #03045e;
+        color: ${({ theme }) => theme.colors.primaryDark};
         font-size: 0.9rem;
         font-weight: 500;
 

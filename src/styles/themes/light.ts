@@ -6,9 +6,9 @@ const colors: ColorsModel = {
   primaryLight: '#495057',
   primaryDark: '#212529',
   primaryFontColor: '#FFFFFF',
-  secondary: '',
-  secondaryLight: '',
-  secondaryDark: '',
+  secondary: '#FFA200',
+  secondaryLight: '#FFC300',
+  secondaryDark: '#FF8800',
 
   background: '',
   backgroundLight: '',

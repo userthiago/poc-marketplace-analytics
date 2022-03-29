@@ -4,10 +4,11 @@ export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 350px;
 
   background-color: ${({ theme }) => theme.colors.primaryLight};
-  border-radius: 0.8rem 0.8rem 0 0;
+  width: 350px;
+  border-radius: 0.5rem;
+  overflow: hidden;
 
   @media screen and (max-width: ${({ theme }) => theme.viewports.medium}) {
     width: calc(50% - 0.5rem);
@@ -53,6 +54,21 @@ export const ProductContainer = styled.div`
 
     height: calc(100% - 350px);
 
+    button {
+      background-color: ${({ theme }) => theme.colors.primary};
+      height: 2.5rem;
+      border: 0;
+
+      color: ${({ theme }) => theme.colors.primaryFontColor};
+      font-weight: 500;
+
+      transition: background-color 0.4s ease;
+
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.primaryDark};
+      }
+    }
+
     @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
       height: calc(100% - 300px);
     }
@@ -79,22 +95,6 @@ export const ProductContainer = styled.div`
       > span {
         color: ${({ theme }) => theme.colors.gray100};
         font-weight: 600;
-      }
-    }
-
-    > button {
-      background-color: ${({ theme }) => theme.colors.primary};
-      height: 2.5rem;
-      border: 0;
-      border-radius: 0 0 0.4rem 0.4rem;
-
-      color: ${({ theme }) => theme.colors.primaryFontColor};
-      font-weight: 500;
-
-      transition: background-color 0.4s ease;
-
-      &:hover {
-        background-color: ${({ theme }) => theme.colors.primaryDark};
       }
     }
   }
