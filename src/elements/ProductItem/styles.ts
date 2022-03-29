@@ -10,15 +10,15 @@ export const ProductContainer = styled.div`
   border-radius: 0.5rem;
   overflow: hidden;
 
-  @media screen and (max-width: ${({ theme }) => theme.viewports.medium}) {
+  @media (max-width: ${({ theme }) => theme.viewports.medium}) {
     width: calc(50% - 0.5rem);
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+  @media (max-width: ${({ theme }) => theme.viewports.small}) {
     width: calc(50% - 0.5rem);
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.viewports.xsmall}) {
+  @media (max-width: ${({ theme }) => theme.viewports.xsmall}) {
     width: 100%;
   }
 
@@ -30,11 +30,11 @@ export const ProductContainer = styled.div`
     border-radius: 0.8rem 0.8rem 0 0;
     overflow: hidden;
 
-    @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+    @media (max-width: ${({ theme }) => theme.viewports.small}) {
       height: 300px;
     }
 
-    @media screen and (max-width: ${({ theme }) => theme.viewports.xsmall}) {
+    @media (max-width: ${({ theme }) => theme.viewports.xsmall}) {
       height: 400px;
     }
 
@@ -69,11 +69,11 @@ export const ProductContainer = styled.div`
       }
     }
 
-    @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+    @media (max-width: ${({ theme }) => theme.viewports.small}) {
       height: calc(100% - 300px);
     }
 
-    @media screen and (max-width: ${({ theme }) => theme.viewports.xsmall}) {
+    @media (max-width: ${({ theme }) => theme.viewports.xsmall}) {
       height: calc(100% - 400px);
     }
 

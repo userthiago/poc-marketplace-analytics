@@ -3,27 +3,55 @@ import styled from 'styled-components';
 export const CartContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  width: 100%;
+  width: 100vw;
   padding: 112px 2rem 2rem;
   overflow-y: auto;
 
-  @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+  @media (max-width: ${({ theme }) => theme.viewports.small}) {
     padding: 112px 1rem 1rem;
   }
 
+  .cartContainer__title {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
   .cartContainer__table {
+    width: 100%;
+
     table {
+      width: 100%;
       border-collapse: collapse;
 
       thead {
+        @media (max-width: ${({ theme }) => theme.viewports.small}) {
+          display: none;
+        }
         tr {
           th {
             background-color: ${({ theme }) => theme.colors.primaryDark};
             padding: 1rem;
 
             color: ${({ theme }) => theme.colors.white};
+
+            &:nth-child(1) {
+              width: 50%;
+            }
+            &:nth-child(2) {
+              width: 11%;
+            }
+            &:nth-child(3) {
+              width: 11%;
+            }
+            &:nth-child(4) {
+              width: 11%;
+            }
+            &:nth-child(5) {
+              width: 6%;
+            }
 
             &:first-child {
               border-radius: 0.5rem 0 0 0;
@@ -36,9 +64,22 @@ export const CartContainer = styled.div`
           }
         }
       }
+
       tbody {
         tr {
           border: solid 1px ${({ theme }) => theme.colors.gray400};
+
+          @media (max-width: ${({ theme }) => theme.viewports.small}) {
+            display: grid;
+            grid-template-areas:
+              'product product  delete'
+              'amount  total    total';
+
+            & + tr {
+              margin-top: 0.5rem;
+            }
+          }
+
           td {
             padding: 0.5rem;
 
@@ -47,10 +88,49 @@ export const CartContainer = styled.div`
             &:nth-child(1) {
               display: flex;
               align-items: center;
+              text-align: start;
 
               span {
                 margin-left: 1rem;
                 font-weight: 500;
+              }
+            }
+
+            @media (max-width: ${({ theme }) => theme.viewports.small}) {
+              display: flex;
+              align-items: center;
+
+              &:nth-child(1) {
+                grid-area: product;
+              }
+
+              &:nth-child(2) {
+                display: none;
+              }
+
+              &:nth-child(3) {
+                grid-area: amount;
+                justify-self: flex-start;
+              }
+
+              &:nth-child(4) {
+                grid-area: total;
+                justify-self: flex-end;
+
+                font-weight: 500;
+
+                &:after {
+                  content: '/total';
+                }
+              }
+
+              &:nth-child(5) {
+                justify-self: flex-end;
+                grid-area: delete;
+
+                button {
+                  font-size: 1.2rem;
+                }
               }
             }
 
@@ -70,10 +150,11 @@ export const CartContainer = styled.div`
             .table__product-amount {
               display: flex;
               align-items: center;
+              justify-content: center;
 
               height: 1.5rem;
-              border: solid 1px ${({ theme }) => theme.colors.gray400};
               border-radius: 0.2rem;
+              margin: 0 auto;
 
               span {
                 padding: 0 0.4rem;
@@ -132,6 +213,52 @@ export const CartContainer = styled.div`
             }
           }
         }
+      }
+    }
+  }
+
+  .cartContainer__summary {
+    display: flex;
+    justify-content: flex-end;
+
+    background-color: ${({ theme }) => theme.colors.primaryDark};
+    width: 100%;
+    padding: 1rem;
+    margin: 1.5rem 0 0.5rem;
+    border-radius: 0.5rem;
+
+    color: ${({ theme }) => theme.colors.primaryFontColor};
+
+    tr td {
+      padding: 0.5rem;
+
+      text-align: end;
+
+      &:first-child {
+        color: ${({ theme }) => theme.colors.gray500};
+      }
+    }
+
+    tr {
+      &:last-child {
+        font-weight: 600;
+
+        td {
+          border-top: solid 1px ${({ theme }) => theme.colors.gray600};
+        }
+      }
+    }
+  }
+
+  .cartContainer__actions {
+    width: 100%;
+
+    button {
+      width: 320px;
+      margin-left: auto;
+
+      @media (max-width: ${({ theme }) => theme.viewports.small}) {
+        width: 100%;
       }
     }
   }

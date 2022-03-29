@@ -104,7 +104,7 @@ export const CartContainer = styled.div`
   z-index: 500;
   position: relative;
 
-  @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+  @media (max-width: ${({ theme }) => theme.viewports.small}) {
     position: initial;
   }
 `;

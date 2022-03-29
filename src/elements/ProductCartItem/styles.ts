@@ -55,7 +55,7 @@ export const ProductCartItemContainer = styled.div`
           background-color: ${({ theme }) => theme.colors.primaryDark};
         }
 
-        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+        @media (max-width: ${({ theme }) => theme.viewports.small}) {
           height: 2rem;
           width: 2rem;
         }
@@ -120,7 +120,7 @@ export const ProductCartItemContainer = styled.div`
           }
         }
 
-        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+        @media (max-width: ${({ theme }) => theme.viewports.small}) {
           height: 1.8rem;
 
           button {
@@ -143,7 +143,7 @@ export const ProductCartItemContainer = styled.div`
         font-size: 0.9rem;
         font-weight: 500;
 
-        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+        @media (max-width: ${({ theme }) => theme.viewports.small}) {
           font-size: 1rem;
         }
       }

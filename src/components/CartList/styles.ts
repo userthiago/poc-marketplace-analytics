@@ -22,7 +22,7 @@ export const CartListContainer = styled.div`
     transform: rotate(45deg) translateX(-50%);
   }
 
-  @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+  @media (max-width: ${({ theme }) => theme.viewports.small}) {
     top: 4.5rem;
     right: 0;
     left: 0;
@@ -69,7 +69,7 @@ export const CartListContainer = styled.div`
       }
     }
 
-    @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+    @media (max-width: ${({ theme }) => theme.viewports.small}) {
       h2 {
         font-size: 1.2rem;
       }
@@ -134,7 +134,7 @@ export const CartListContainer = styled.div`
           font-weight: 700;
         }
 
-        @media screen and (max-width: ${({ theme }) => theme.viewports.small}) {
+        @media (max-width: ${({ theme }) => theme.viewports.small}) {
           font-size: 1rem;
         }
       }
