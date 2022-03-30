@@ -96,7 +96,7 @@ const Cart: React.FC = () => {
             </thead>
             <tbody>
               {productList.map((product) => (
-                <tr>
+                <tr key={product.id}>
                   <td>
                     <div className="table__product-image">
                       <img src={product.imageUrl} alt={product.name} />
@@ -148,7 +148,7 @@ const Cart: React.FC = () => {
           </table>
         </div>
         <div className="cartContainer__summary">
-          <div className="summary__content">
+          <tbody className="summary__content">
             <tr className="content__subtotal">
               <td>Subtotal</td>
               <td>
@@ -171,7 +171,7 @@ const Cart: React.FC = () => {
                 }).format(CART_TOTAL_PRICE)}
               </td>
             </tr>
-          </div>
+          </tbody>
         </div>
         <div className="cartContainer__actions">
           <ButtonShop onClick={() => handleFinishPurchase()}>
