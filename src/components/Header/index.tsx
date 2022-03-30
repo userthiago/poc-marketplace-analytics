@@ -25,7 +25,7 @@ const Header: React.FC = () => {
           </div>
         </div>
       </Link>
-      <SearchInput>
+      <SearchInput $disabled>
         <FiSearch />
         <input
           disabled

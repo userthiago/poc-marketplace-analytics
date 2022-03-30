@@ -1,5 +1,7 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import React from 'react';
+import { CgSpinner } from 'react-icons/cg';
 import { FiMinus, FiPlus, FiX } from 'react-icons/fi';
 import ButtonShop from '../../elements/ButtonShop';
 import { useCartContext } from '../../hooks/useCartContext';
@@ -9,10 +11,63 @@ const Cart: React.FC = () => {
   const {
     handleRemoveProductAmount,
     handleAddProductAmount,
+    handleFinishPurchase,
     handleRemoveProduct,
     productList,
+    isLoading,
     CART_TOTAL_PRICE,
   } = useCartContext();
+
+  if (isLoading) {
+    return (
+      <>
+        <Head>
+          <title>POC Shop - Meu carrinho</title>
+          <meta
+            name="description"
+            content="POC about data layers for Google Analytics"
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <CartContainer>
+          <div className="cartContainer__finishPurchase">
+            <CgSpinner />
+            <div className="finishPurchase__phrase">
+              <p>Aguarde um momento :)</p>
+              <p>Estamos processando sua compra.</p>
+            </div>
+          </div>
+        </CartContainer>
+      </>
+    );
+  }
+
+  if (productList.length <= 0) {
+    return (
+      <>
+        <Head>
+          <title>POC Shop - Meu carrinho</title>
+          <meta
+            name="description"
+            content="POC about data layers for Google Analytics"
+          />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <CartContainer>
+          <div className="cartContainer__title">
+            <h2>Meu carrinho</h2>
+          </div>
+          <div className="cartContainer__empytCart">
+            <span>:(</span>
+            <p>Não há produtos em seu carrinho.</p>
+            <Link href="/">
+              <ButtonShop>Voltar a página inicial</ButtonShop>
+            </Link>
+          </div>
+        </CartContainer>
+      </>
+    );
+  }
 
   return (
     <>
@@ -119,7 +174,9 @@ const Cart: React.FC = () => {
           </div>
         </div>
         <div className="cartContainer__actions">
-          <ButtonShop>Finalizar Compra</ButtonShop>
+          <ButtonShop onClick={() => handleFinishPurchase()}>
+            Finalizar Compra
+          </ButtonShop>
         </div>
       </CartContainer>
     </>

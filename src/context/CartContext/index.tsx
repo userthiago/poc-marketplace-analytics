@@ -103,6 +103,7 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
     );
 
     setTimeout(() => {
+      setProductList([]);
       toast.update(toastId.current, {
         render: 'Sua compra foi realizada com sucesso! :)',
         theme: 'colored',
@@ -114,7 +115,7 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
         position: 'bottom-right',
       });
       setLoading(false);
-    }, 9000);
+    }, 5000);
   };
 
   const handleRemoveProduct = useCallback(

@@ -8,7 +8,7 @@ export const CartListContainer = styled.div`
 
   background: ${({ theme }) => theme.colors.white};
   width: 23rem;
-  border-radius: 10px;
+  border-radius: 8px;
 
   &:before {
     content: '';
@@ -115,7 +115,7 @@ export const CartListContainer = styled.div`
       padding: 0.8rem;
 
       background: ${({ theme }) => theme.colors.primary};
-      border-radius: 0 0 10px 10px;
+      border-radius: 0 0 8px 8px;
 
       .actions__summary {
         display: flex;

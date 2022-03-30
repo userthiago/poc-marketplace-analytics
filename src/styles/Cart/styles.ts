@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const spinAnimation = keyframes`
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+`;
 
 export const CartContainer = styled.div`
   display: flex;
@@ -17,6 +26,26 @@ export const CartContainer = styled.div`
   .cartContainer__title {
     width: 100%;
     margin-bottom: 1.5rem;
+  }
+
+  .cartContainer__finishPurchase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    svg {
+      animation: ${spinAnimation} 1s linear infinite;
+
+      color: ${({ theme }) => theme.colors.primaryLight};
+      font-size: 3rem;
+    }
+
+    .finishPurchase__phrase {
+      color: ${({ theme }) => theme.colors.primaryLight};
+      font-weight: 500;
+      text-align: center;
+    }
   }
 
   .cartContainer__table {
@@ -254,12 +283,31 @@ export const CartContainer = styled.div`
     width: 100%;
 
     button {
-      width: 320px;
+      width: 280px;
       margin-left: auto;
 
       @media (max-width: ${({ theme }) => theme.viewports.small}) {
         width: 100%;
       }
+    }
+  }
+
+  .cartContainer__empytCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    span {
+      font-size: 2rem;
+      font-weight: 600;
+      color: ${({ theme }) => theme.colors.gray500};
+    }
+
+    p {
+      margin-bottom: 1rem;
+
+      font-weight: 500;
     }
   }
 `;

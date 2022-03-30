@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const HeaderContainer = styled.header`
   z-index: 200;
@@ -50,7 +50,11 @@ export const HeaderContainer = styled.header`
   }
 `;
 
-export const SearchInput = styled.div`
+interface SearchInputProps {
+  $disabled: boolean;
+}
+
+export const SearchInput = styled.div<SearchInputProps>`
   display: flex;
   align-items: center;
   flex: 1;
@@ -71,18 +75,26 @@ export const SearchInput = styled.div`
     border: 0;
     color: ${({ theme }) => theme.colors.primary};
 
-    &:disabled {
-      cursor: not-allowed;
-
-      &::placeholder {
-        color: ${({ theme }) => theme.colors.gray300};
-      }
-    }
-
     &::placeholder {
       color: ${({ theme }) => theme.colors.primaryLight};
     }
   }
+
+  ${({ $disabled }) =>
+    $disabled &&
+    css`
+      cursor: not-allowed;
+
+      color: ${({ theme }) => theme.colors.gray300};
+
+      input {
+        cursor: not-allowed;
+
+        &::placeholder {
+          color: ${({ theme }) => theme.colors.gray300};
+        }
+      }
+    `};
 `;
 
 export const Cart = styled.button`
