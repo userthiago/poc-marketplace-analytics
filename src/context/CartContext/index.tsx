@@ -52,12 +52,6 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
       );
 
       if (productIndex >= 0) {
-        gtag.event({
-          action: 'add_to_cart',
-          category: 'ecommerce',
-          label: 'Produto adicionado ao carrinho',
-          value: productListCopy[productIndex].name,
-        });
         productListCopy[productIndex] = {
           ...productListCopy[productIndex],
           amount: (productListCopy[productIndex].amount += 1),
@@ -159,6 +153,15 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
       } else {
         productListCopy.push(product);
       }
+
+      gtag.event({
+        action: 'add_to_cart',
+        category: 'ecommerce',
+        label: 'Produto adicionado ao carrinho',
+        value: product.name,
+      });
+
+      console.log(product.name);
 
       setProductList(productListCopy);
     },
