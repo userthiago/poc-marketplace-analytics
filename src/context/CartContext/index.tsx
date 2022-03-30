@@ -7,6 +7,7 @@ import React, {
   useState,
 } from 'react';
 import { toast } from 'react-toastify';
+import * as gtag from '../../helpers/googleTagManagerHelper';
 
 type ProductData = {
   id: string;
@@ -51,12 +52,17 @@ const CartContextProvider: React.FC = ({ children, ...props }) => {
       );
 
       if (productIndex >= 0) {
+        gtag.event({
+          action: 'add_to_cart',
+          category: 'ecommerce',
+          label: 'Produto adicionado ao carrinho',
+          value: productListCopy[productIndex].name,
+        });
         productListCopy[productIndex] = {
           ...productListCopy[productIndex],
           amount: (productListCopy[productIndex].amount += 1),
         };
       }
-
       setProductList(productListCopy);
     },
     [productList],
