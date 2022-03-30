@@ -44,7 +44,6 @@ export const ProductContainer = styled.div`
       object-fit: cover;
       border-radius: 0.8rem 0.8rem 0 0;
       transform: scale(1.4);
-      transition: transform 0.4s ease;
     }
   }
 

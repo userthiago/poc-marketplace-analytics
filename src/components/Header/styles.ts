@@ -69,8 +69,15 @@ export const SearchInput = styled.div`
     width: 100%;
     padding: 0.5rem;
     border: 0;
-
     color: ${({ theme }) => theme.colors.primary};
+
+    &:disabled {
+      cursor: not-allowed;
+
+      &::placeholder {
+        color: ${({ theme }) => theme.colors.gray300};
+      }
+    }
 
     &::placeholder {
       color: ${({ theme }) => theme.colors.primaryLight};

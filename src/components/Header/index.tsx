@@ -27,7 +27,11 @@ const Header: React.FC = () => {
       </Link>
       <SearchInput>
         <FiSearch />
-        <input placeholder="Buscar produtos e muito mais..." />
+        <input
+          disabled
+          placeholder="Buscar produtos e muito mais..."
+          title="Função será adicionada em breve."
+        />
       </SearchInput>
       <CartContainer>
         <Cart onClick={onCartButtonClick}>
